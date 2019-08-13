@@ -19,32 +19,19 @@ let validator = module.exports = {};
 
 // if you need to setup more complex rules, remember that rules can be an object too
 validator.isValid = (input, rules) => {
-  // return true;
-  if(rules === 'object') {
-    // Vinicio - how do I check if the type of the input is an object
-  }
 
-  if(rules === 'object') {
-    // I'm checking if the value is less than zero, because the user wants to
-    // check if the value is negative
-    return input < 0;
-  }
 
-  if(rules === 'one') {
-    // I'm checking if the value is less than zero, because the user wants to
-    // check if the value is negative
-    return input === 1;
+  if(rules === 'positive') {
+    // I'm checking if the value is greater than zero, because the user wants to
+    // check if the value is positive
+    return input > 0;
   }
   if(rules === 'negative') {
     // I'm checking if the value is less than zero, because the user wants to
     // check if the value is negative
     return input < 0;
   }
-  if(rules === 'odd') {
-    // I'm checking if the value is less than zero, because the user wants to
-    // check if the value is negative
-    return input % 2 === 1;
-  }
+
 
 };
 
@@ -63,14 +50,16 @@ validator.isNum = (input) => {
   return typeof input === 'number';
 };
 
-validator.isArray = (input) => {
-  return Array.isArray(input);
-};
-
-validator.isObject = (input) => {
-  return typeof input === 'object';
-};
 
 validator.isObjectProperty = (obj, prop) => {
   return obj.hasOwnProperty(prop);
+};
+
+validator.isObjectValid = (data, schema) => {
+    Object.keys(schema.fields).forEach(property => {
+        if(!data.hasOwnProperty(property)){
+        return false;
+      }
+    });
+    return true;
 };

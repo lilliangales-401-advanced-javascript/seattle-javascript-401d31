@@ -4,7 +4,7 @@ const validator = require('../lib/validator.js');
 
 describe('validator must test if the number is positive', () => {
   it('checks if number is positive', () => {
-    expect(validator.isValid(-1,'negative')).toBeTruthy();
+    expect(validator.isValid(1,'positive')).toBeTruthy();
   });
 });
 
@@ -60,6 +60,18 @@ describe('validate if the input is a number', () => {
 });
 
 
+describe('#isOjectValid', () => {
+  test('regular cases', () => {
+    const schema = {
+    fields: {
+        id: {type: 'string'},
+        age: {type: 'number'},
+        favToy: {type: 'object'}
+      },
+     };
+     expect(validator.isObjectValid({id: 'a', age: 1, favoriteToys: {}}, schema)).toEqual(true);
+    });
+   });
 
 
 describe('validator module performs complex validations', () => {
