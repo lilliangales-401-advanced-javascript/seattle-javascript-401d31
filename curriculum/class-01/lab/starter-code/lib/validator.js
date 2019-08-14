@@ -48,7 +48,7 @@ validator.isString = (input) => {
 
 validator.isNum = (input) => {
   return typeof input === 'number';
-};
+};w;
 
 
 validator.isObjectProperty = (obj, prop) => {
@@ -56,10 +56,10 @@ validator.isObjectProperty = (obj, prop) => {
 };
 
 validator.isObjectValid = (data, schema) => {
-    Object.keys(schema.fields).forEach(property => {
-        if(!data.hasOwnProperty(property)){
-        return false;
-      }
-    });
-    return true;
+  Object.keys(schema.fields).forEach(property => {
+    if(!data.hasOwnProperty(property)){
+      return false;
+    }
+  });
+  return true;
 };

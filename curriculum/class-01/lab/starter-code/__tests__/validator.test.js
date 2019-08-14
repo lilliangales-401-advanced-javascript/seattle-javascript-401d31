@@ -63,15 +63,15 @@ describe('validate if the input is a number', () => {
 describe('#isOjectValid', () => {
   test('regular cases', () => {
     const schema = {
-    fields: {
+      fields: {
         id: {type: 'string'},
         age: {type: 'number'},
-        favToy: {type: 'object'}
+        favToy: {type: 'object'},
       },
-     };
-     expect(validator.isObjectValid({id: 'a', age: 1, favoriteToys: {}}, schema)).toEqual(true);
-    });
-   });
+    };
+    expect(validator.isObjectValid({id: 'a', age: 1, favoriteToys: {}}, schema)).toEqual(true);
+  });
+});
 
 
 describe('validator module performs complex validations', () => {
