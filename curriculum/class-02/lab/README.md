@@ -1,11 +1,12 @@
 # LAB: Classes, Inheritance, Functional Programming
 
+
 ## Before you begin
 Refer to *Getting Started* in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup instructions
 
 ## Requirements
 
-### Part 1: Vehicles
+### Part 1: Vehicles (Not Required)
 **Starter Code:** `starter-code/classes`
 
 * Implement both `Car` and `Motorcycle` using a Javascript `Class` (in the `vehicle-class.js` file)
@@ -16,7 +17,7 @@ Refer to *Getting Started* in the [lab submission instructions](../../../referen
 
 ---
 
-### Part 2: Draw UML and write docs for the List Module
+### Part 2: Draw UML and write docs for the List Module (Not Required)
 **Starter Code:** `starter-code/list`
  
 ---
@@ -33,6 +34,7 @@ Things we want to be able to validate
 * Is the entity itself the right type (array, object, function etc)
 * All all "required" properties present and do they have values?
 * For any property that specifies a type, does the value match that type?
+  * i.e. an array of only numbers
 
 Question: Do you want to export the class and have to make a new instance after you import it, or do you want to export an instance of that class (we call this a singleton). What are the pros and cons to each choice?
 

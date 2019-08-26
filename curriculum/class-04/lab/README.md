@@ -1,14 +1,7 @@
 # LAB: Data Modeling
 
-## Before you begin
-* Create a new git repository for this lab
-* Copy the starter-code contents into it
-* You'll need to initialize this lab folder as a new node module, install your dependencies, setup your npm script commands, and pull in your config files
-
 ## Getting Started
 Refer to *Getting Started* in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup instructions
-
----
 
 ## Requirements
 
@@ -17,10 +10,13 @@ Refer to *Getting Started* in the [lab submission instructions](../../../referen
   * Add tests to support the other CRUD Methods
     * `delete()`
     * `update()`
+		// Vinicio - this is where you add type checking
   * Extend the `memory.js` parent class' `sanitize()` method to support type checking (string, number, boolean), valid values as well as required
     * *How will this change your schemas?*
     * *How will you test this method directly without running a CRUD method?*
-  * Genericize the model test to run the same set of core tests on any model
+  * Genericize the model test to run the same set of core tests on any model (stretch goal)
+	  * Vinicio - the way to accomplish this is to include for eachs and to make the tests generic with arrays
+
 
 ### Create another model
 * Using TDD ...
@@ -34,7 +30,7 @@ Refer to *Getting Started* in the [lab submission instructions](../../../referen
   * Shouldn't your generic model test "just work" once you add the Products model to it's list?
     * Yep ...
 
-### Persist the data!
+### Persist the data (to a file)!
 Thus far, you've created a simple, testable, extensible data modeling system.  But the data goes away after each run of the program. For this task, you'll be writing a persistence layer.
 
 * Create a new model type in the `models` folder called `file.js`
