@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
 
     switch(authType.toLowerCase()) {
       case 'basic':
+        // auth string contains username and password - hashed
         return _authBasic(authString);
       default:
         return _authError();
@@ -22,8 +23,10 @@ module.exports = (req, res, next) => {
   }
 
   function _authBasic(authString) {
+    // base64Buffer is a binary representation of the encoded data - intermediate step before making it into a string
     let base64Buffer = Buffer.from(authString,'base64'); // <Buffer 01 02...>
     let bufferString = base64Buffer.toString(); // john:mysecret
+    // destructure  username and password from the string
     let [username,password] = bufferString.split(':');  // variables username="john" and password="mysecret"
     let auth = {username,password};  // {username:"john", password:"mysecret"}
 

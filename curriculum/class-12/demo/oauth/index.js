@@ -12,7 +12,9 @@ app.use(express.json());
 let port = 3000;
 const googleTokenServerUrl = 'https://www.googleapis.com/oauth2/v4/token';
 const googlePlusAPI = 'https://www.googleapis.com/plus/v1/people/me/openIdConnect';
+// should have in your env
 const GOOGLE_CLIENT_ID = '';
+// should have in your env
 const GOOGLE_CLIENT_SECRET = '';
 const API_SERVER = 'http://localhost:3000/oauth';
 
@@ -21,9 +23,12 @@ app.get('/oauth', authorize);
 
 function authorize (req,res) {
 
+  // grab the code from our req.query
   let code = req.query.code;
   console.log('(1) CODE:', code);
-
+``
+  // make a request to google oath
+  // return an access_token
   return superagent.post(googleTokenServerUrl)
     .type('form')
     .send({
@@ -38,6 +43,9 @@ function authorize (req,res) {
       console.log('(2) ACCESS TOKEN:', access_token);
       return access_token;
     })
+
+    // make a request to google API
+    // return google user
     .then(token => {
       return superagent.get(googlePlusAPI)
         .set('Authorization', `Bearer ${token}`)
